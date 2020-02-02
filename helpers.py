@@ -66,5 +66,4 @@ def save_to_csv(set, filename):
 
     csv_file.close()
 
-if __name__ == "__main__":
-    test = open_filedialog()
+# if __name__ == "__main__":
