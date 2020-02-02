@@ -3,7 +3,7 @@ import pandas as pd
 import tkinter as tk
 from tkinter.filedialog import askopenfilename, asksaveasfilename
 
-rows_to_delete = []
+#rows_to_delete = []
 
 def open_filedialog(file_type):
     root = tk.Tk()
@@ -30,19 +30,18 @@ def find_clean_website(website):
     else:
         return ''
 
-def find_delete_rows(df):
+#def find_delete_rows(df):
 
-    rows_to_delete.clear
-
-    for row, data in df.iterrows():
-        if data.Delete == 'Ja':
-            rows_to_delete.append(data.Nr)
+    # for row, data in df.iterrows():
+    #     if data.Delete == 'Ja':
+    #         rows_to_delete.append(data.Nr)
     
     
 
 def delete_rows(df_delete, df_main):
 
-    find_delete_rows(df_delete)
+    #find_delete_rows(df_delete)
+    rows_to_delete = df_delete['Nr']
 
     print("{} rows will be deleted".format(len(rows_to_delete)))
 

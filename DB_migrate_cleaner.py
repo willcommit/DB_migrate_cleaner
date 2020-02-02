@@ -21,7 +21,7 @@ df_final = df_new.append(df_old[matching_cols], sort=False, ignore_index=True)
 
 #TODO Cleaning data - move to helpers, create config file
 df_final = df_final.replace('Nej', False, regex=True)
-df_final['Hemsida'] = df_final['Hemsida'].apply(helpers.find_clean_website)
+#df_final['Hemsida'] = df_final['Hemsida'].apply(helpers.find_clean_website)
 
 #Save to files
 save_location = helpers.save_filedialog()
