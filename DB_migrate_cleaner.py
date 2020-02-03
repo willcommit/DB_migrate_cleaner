@@ -13,30 +13,27 @@ df_delete = pd.read_excel(excel_delete_ref)
 df_old = helpers.delete_rows(df_delete, df_old)
 
 #Cleaning/Changing name on columns, fit import
-df_old = helpers.clean_item_col(df_old)
+df_old = helpers.change_item_col(df_old)
 
-#Finding cols that match and don't
-matching_cols = set(df_old.columns).intersection(set(df_new.columns))
-non_matching_cols = set(df_old.columns).difference(set(df_new.columns))
+save_location = helpers.save_filedialog()
+df_old.to_excel(save_location, index=False)
 
-
-# helpers.save_to_csv(set(df_old.columns), "./old.csv")
-# helpers.save_to_csv(set(df_new.columns), "./new.csv")
-
+# #Finding cols that match and don't
+# matching_cols = set(df_old.columns).intersection(set(df_new.columns))
+# non_matching_cols = set(df_old.columns).difference(set(df_new.columns))
 
 # helpers.save_to_csv(non_matching_cols, "./non_matching_cols3.csv")
 # helpers.save_to_csv(matching_cols, "./matching_cols.csv")
 
+# #Combining files to final import file
+# df_final = df_new.append(df_old[matching_cols], sort=False, ignore_index=True)
 
-#Combining files to final import file
-df_final = df_new.append(df_old[matching_cols], sort=False, ignore_index=True)
+# #Cleaning data - move to helpers. create config file for changes?
+# df_final = helpers.data_cleaner(df_final, "Ja")
+# df_final = helpers.data_cleaner(df_final, "Nej")
 
-#TODO Cleaning data - move to helpers, create config file
-df_final = df_final.replace('Nej', False, regex=True)
-#df_final['Hemsida'] = df_final['Hemsida'].apply(helpers.find_clean_website)
+# #Save to files
+# save_location = helpers.save_filedialog()
+# df_final.to_excel(save_location, index=False)
 
-#Save to files
-save_location = helpers.save_filedialog()
-df_final.to_excel(save_location, index=False)
-
-print("Complete! {} non matching cols".format(len(non_matching_cols)))
+# print("Complete! {} non matching cols".format(len(non_matching_cols)))

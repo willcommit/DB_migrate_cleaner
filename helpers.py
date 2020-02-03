@@ -42,7 +42,8 @@ def change_item_col(df_old):
         for nav, dyn in new_col_dict.items():
             if col == nav:
                 df_old.rename(columns={col:dyn}, inplace=True)
-    print(df_old.columns)
+    
+    return df_old
 
 def find_clean_website(website):
     if re.search('\www.*', str(website)):
@@ -91,6 +92,16 @@ def save_to_csv(set, filename):
         csv_file.write("{} \n".format(item))
 
     csv_file.close()
+
+def data_cleaner(df, value):
+    if value == 'Ja':
+        return df.replace('Ja', True, regex=True)
+    elif value == 'Nej':
+        return df.replace('Nej', False, regex=True)
+    #elif value == 'Hemsida':
+    #    df_final['Hemsida'] = df_final['Hemsida'].apply(helpers.find_clean_website)
+    else:
+        pass
 
 if __name__ == "__main__":
     excel_old_data = open_filedialog('NAV EXPORT')
