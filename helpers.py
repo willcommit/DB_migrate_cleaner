@@ -98,6 +98,8 @@ def data_cleaner(df, value):
         return df.replace('Ja', True, regex=True)
     elif value == 'Nej':
         return df.replace('Nej', False, regex=True)
+    elif value == 'TB=pris-kostnad':
+        return df.replace('Nej', 'Vinst=pris-kostnad', regex=True)
     #elif value == 'Hemsida':
     #    df_final['Hemsida'] = df_final['Hemsida'].apply(helpers.find_clean_website)
     else:
