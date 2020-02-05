@@ -10,7 +10,7 @@ df_new = pd.read_excel(excel_new_data)
 df_delete = pd.read_excel(excel_delete_ref)
 
 #Deleting rows according to file
-df_old = helpers.delete_rows(df_delete, df_old)
+df_old = helpers.delete_rows(df_delete, df_old, 'Nr')
 
 #Cleaning/Changing name on columns, fit import
 df_old = helpers.change_item_col(df_old)

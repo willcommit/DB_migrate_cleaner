@@ -59,10 +59,10 @@ def find_clean_website(website):
     
     
 
-def delete_rows(df_delete, df_main):
+def delete_rows(df_delete, df_main, column_name):
 
     #find_delete_rows(df_delete)
-    rows_to_delete = df_delete['Nr']
+    rows_to_delete = df_delete[column_name]
 
     print("{} rows will be deleted".format(len(rows_to_delete)))
 
