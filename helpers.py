@@ -7,7 +7,7 @@ from tkinter.filedialog import askopenfilename, asksaveasfilename
 
 def open_filedialog(file_type):
     root = tk.Tk()
-    root.filename = askopenfilename(initialdir = "./",title = "Select {} file".format(file_type), filetypes = (("Excel","*.xlsx"),("all files","*.*")))
+    root.filename = askopenfilename(initialdir = "G:\\Migrering NAV\\Importfiler\\arbetsfiler",title = "Select {} file".format(file_type), filetypes = (("Excel","*.xlsx"),("all files","*.*")))
     filename = root.filename
     print (root.filename)
     root.destroy()
@@ -16,7 +16,7 @@ def open_filedialog(file_type):
 
 def save_filedialog():
     root = tk.Tk()
-    root.filename =  asksaveasfilename(initialdir = "./",title = "Save to",filetypes = (("Excel","*.xlsx"),("all files","*.*")))
+    root.filename =  asksaveasfilename(initialdir = "G:\\Migrering NAV\\Importfiler\\arbetsfiler",title = "Save to",filetypes = (("Excel","*.xlsx"),("all files","*.*")))
     filename = root.filename
     print (root.filename)
     root.destroy()
@@ -31,7 +31,7 @@ def create_new_col_dict():
 
     for item, data in df_ref_clean.iterrows():
         if data.change:
-            new_col_dict[data.nav_name] = data.dyn_name
+            new_col_dict[data.nav_name] = data.dss_name
     
     return new_col_dict
 

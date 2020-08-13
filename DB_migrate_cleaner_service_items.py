@@ -3,9 +3,9 @@
 import pandas as pd
 import helpers
 
-excel_old_data = helpers.open_filedialog('NAV EXPORT')
-excel_new_data = helpers.open_filedialog('DYNAMICS IMPORT')
-excel_delete_ref = helpers.open_filedialog('DELETE')
+excel_old_data = helpers.open_filedialog('NAVISION EXPORT FIL')
+excel_new_data = helpers.open_filedialog('DSS IMPORT FIL')
+excel_delete_ref = helpers.open_filedialog('DELETE FIL')
 
 df_old = pd.read_excel(excel_old_data)
 df_new = pd.read_excel(excel_new_data)
