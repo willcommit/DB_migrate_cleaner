@@ -50,13 +50,6 @@ def find_clean_website(website):
         return website
     else:
         return ''
-
-#def find_vendor_delete_rows(df):
-
-    # for row, data in df.iterrows():
-    #     if data.Delete == 'Ja':
-    #         rows_to_delete.append(data.Nr)
-    
     
 
 def delete_rows(df_delete, df_main, column_name):
@@ -99,9 +92,9 @@ def data_cleaner(df, value):
     elif value == 'Nej':
         return df.replace('Nej', False, regex=True)
     elif value == 'TB=pris-kostnad':
-        return df.replace('Nej', 'Vinst=pris-kostnad', regex=True)
-    #elif value == 'Hemsida':
-    #    df_final['Hemsida'] = df_final['Hemsida'].apply(helpers.find_clean_website)
+        return df.replace('TB=pris-kostnad', 'Vinst=pris-kostnad', regex=True)
+    elif value == 'Hemsida':
+        df_final['Hemsida'] = df_final['Hemsida'].apply(find_clean_website)
     else:
         pass
 
