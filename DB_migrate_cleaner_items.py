@@ -29,7 +29,7 @@ df_final = df_new.append(df_old[matching_cols], sort=False, ignore_index=True)
 #Cleaning data - move to helpers. create config file for changes?
 df_final = helpers.data_cleaner(df_final, "Ja")
 df_final = helpers.data_cleaner(df_final, "Nej")
-#df_final = helpers.data_cleaner(df_final, "TB=pris-kostnad")
+df_final = helpers.data_cleaner(df_final, "TB=pris-kostnad")
 
 #Save to files
 save_location = helpers.save_filedialog()
